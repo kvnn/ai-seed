@@ -1,6 +1,6 @@
 # OahuAI Seed Requirements
 
-Implementation reference: current working tree based on git revision `5c498aa`.
+Implementation reference: current working tree based on git revision `e5607bf`.
 
 ## Executive Summary
 
@@ -30,6 +30,7 @@ Vendor credentials (AWS S3, OpenAI, Firecrawl) are provisioned by the workshop o
 - Domain-owned backend code must live under `backend/apps/<domain>/...`, while only cross-cutting adapters should live under `backend/services/...`.
 - The repository should not retain an active `src/services` Python tree; `backend/` is the only supported package root.
 - Optional backend integrations may depend on extra packages, but those imports should fail lazily with clear runtime errors rather than breaking app startup when the integration is unused.
+- The public repository must not include live local secrets, database files, or private tool state; local runtime configuration should be represented by redacted example files instead.
 - Local Docker development must not depend on reserving a fixed backend host port if the frontend can proxy to the API container over the Compose network.
 - Local Docker should expose the backend service under the Compose name `backend`, and the backend should tolerate async-style Postgres URLs in env by normalizing them for the sync runtime.
 - Local Docker should default the backend database to a writable SQLite file in `/data` unless an explicit backend-specific DB override is supplied.
@@ -46,3 +47,4 @@ Vendor credentials (AWS S3, OpenAI, Firecrawl) are provisioned by the workshop o
 ### Deployment
 - The stack must be deployable to Render (or similar container hosts) with minimal configuration.
 - AWS S3 is the default media storage backend for production deployments.
+- A public-ready clone of the repo should not require publishing a real `.env`, and security-sensitive defaults like JWT signing should not silently fall back to `"change-me"`.
