@@ -10,18 +10,14 @@ You are a coding agent that develops the simplest, most elegant and principal-en
 
 4. Help the user by asking questions that a principal product owner would ask a chief non-technical friendly and eager stakeholder.
 
-- Before beginning a task, think about the feature that your task is supporting. Think of the best feature branch name (e.g. `feature/sms-2fa` for a 2FA via SMS) and save it and what you're about to do to with `{datetime} in `docs/LOG.md`
+- Before beginning a task, think about the feature that your task is supporting. Think of the best feature branch name (e.g. `feature/sms-2fa` for a 2FA via SMS) and save it and what you're about to do with `{datetime}` in `docs/LOG.md`
 
+5. Log requirements considerations, decision points and work accomplished to `docs/{short_datetime}_{feature_name}.log.md`
 
+6. Any time you make significant considerations, note it in `docs/NOTES.md` in a simple sentence (noting any contradictions, tensions, verifications, resolutions) with a shortened ISO-8601 format like `2026-03-08T08:41:23Z there is an old implementation of 2fa SMS that relies on Twilio, but the user recently mentioned using Signalwire.`
 
-## Loop / Rules (old)
+7. `docs/REQUIREMENTS.md` is for humans, not agents. Keep it up to date with an accurate executive summary of what the purpose of this app is and the requirements for fulfilling it. After completing a task, reflect on it — add any missing statements and fix any inaccuracies.
 
-1. Upon initialization echo `reading AGENTS.md`
-2. - if you modify models.py files, you need to provide the alembic migrations. Help the user avoid migration difficulties by keeping all database models in a singe models.py and maintaining the alembic migrations directory, as well as running migrations if necessary and telling the user exactly what happening
-3. log requirements considerations, decision points and work accomplished to docs/{short_datetime}_{feature_name}.log.md
-4. Any time you make significant considerations, note it in docs/NOTES.md in a simple sentence (noting any contradictions, tensions, verifications, resolutions) with a shortened ISO-8601 format like `2026-03-08T08:41:23Z there is an old implementation of 2fa SMS that relies on Twilio, but the user recently mentioned using Signalwire. I will implement a SignalWire service now then ask the user if Twilio should be supported as a fallback.` If you find yourself in a confusing situation, making important investigations or decisions, refer back to this document.
-5. docs/REQUIREMENTS.md is for humans, not agents. You are to keep it up to date with an accurate executive summary of what the purpose of this app is and the requirements for fulfilling it. After completing a task, or being far enough along some iterative task with the user, reflect on docs/REQUIREMENTS.md , add any missing statements and fix any inaccuracies
-6. You may find skills in `/skills` and even more refined services in `src/services`. For example, there may be a skill for scraping the web and there might be a `src/services/firecrawl.py`. Before using one or the other, articulate your reason for doing so in your output stream.
 
 
 ## Development Patterns
@@ -30,7 +26,6 @@ You are a coding agent that develops the simplest, most elegant and principal-en
 3. the following files serve as foundation for most services
     - database.py - simple sqlite / postgres db manager
     - logger.py - simple logging
-    - 
     - schemas.py - these are pydantic classes used for llm responses . keep them simple and follow the patterns that already exist. This should be scoped to an app.
     - models.py - these are the sqlalchemy classes used to store data in our db , which is sqlite locally and postgres while deployed. This should be a single canonical file.
     - prompts.py - these are our static prompts for llm responses, etc. This should be scoped to an app.
@@ -44,12 +39,14 @@ You are a coding agent that develops the simplest, most elegant and principal-en
 6) DB schema changes require migrations; Use alembic. avoid runtime `create_all` except local bootstrap mode. Help the user avoid migration difficulties by keeping all database models in a singe models.py and maintaining the alembic migrations directory, as well as running migrations if necessary and telling the user exactly what happening.
 7) API logs must include start/success/error with endpoint name, request_id, duration_ms, and status_code.
 8) Never log secrets, tokens, full phone numbers, or raw PII.
-9) `metadata` is a reserved attribute in SQLAlchemy declarative models. The `messages` table stores the column as `metadata`, but the mapped attribute is named `meta` (`meta = Column("metadata", JSONType, ...)`) to avoid conflicts.
+9) `metadata` is a reserved attribute in SQLAlchemy declarative models. If a table needs a `metadata` column, map the attribute to a different name (e.g. `meta = mapped_column("metadata", JSON, ...)`) to avoid conflicts.
 10) Do not use inline imports. All imports should be at the top of the file, outside of functions
 11) Utilize functional programming as a default but do not be dogmatic. 
 12) We use FastAPI as an API, not to serve frontends. Frontend files should compile to static assets and live in the frontend/src . 
 13) NEVER run `rm -rf` commands. Instead, rename the directory in question using `mv` , and prefix it with `.deprecated_` , and let the user know that you believe that they can delete it.
 14) Always work off of the `main` branch unless the user has been using manual branch strategies. Keep regular backups of the branch by doing something like `git checkout -b .backup-main-{datetime} && git checkout main`. We want to keep our git usage simple but safe.
+15) Don't write tests. Its a waste of tokens unless the user is actively inspecting and using them, and most users don't do that. 
+16) Update this file over time, but ensure that you discuss the changes with the user and log them in docs/LOG.md
 
 
 ## LLM Workfow patterns
