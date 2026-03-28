@@ -10,7 +10,7 @@ You don't need to be a developer. Clone this repo, open Claude Code, describe wh
 
 **Backend** — FastAPI with session auth, admin bootstrap, and invite codes.
 
-**Database** — SQLAlchemy + Alembic migrations. SQLite locally, Postgres in production.
+**Database** — SQLAlchemy models. SQLite locally, Postgres in production.
 
 **Storage** — Swappable file storage. Local filesystem for dev, S3 for production.
 
@@ -69,6 +69,8 @@ patterns/         # Architecture pattern docs for Claude Code
 docs/
   VISION.md       # Your project vision (fill this in first)
   REQUIREMENTS.md # Living requirements doc
+  LOG.md          # One-line task log for future agents
+  NOTES.md        # Short timestamped decisions and tensions
 ```
 
 ## Deploy

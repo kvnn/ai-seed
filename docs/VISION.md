@@ -2,7 +2,7 @@
 
 > This file is your project's source of truth. When Claude Code opens this repo,
 > it reads this document to understand what you're building and why. Update it as
-> your thinking evolves — every future conversation stays grounded in what's here.
+> your thinking evolves so future conversations stay grounded in what's here.
 
 ## What are you building?
 
@@ -29,10 +29,9 @@
 
 ## Constraints
 
-<!-- Budget, timeline, tech limitations, regulatory requirements, team size — anything that shapes what's realistic. -->
+<!-- Budget, timeline, tech limitations, regulatory requirements, team size, or anything else that shapes what's realistic. -->
 
 
 ## Open questions
 
-<!-- Things you haven't decided yet. Claude Code will help you work through these. -->
-
+<!-- Things you haven't decided yet. Claude Code should help work through these. -->

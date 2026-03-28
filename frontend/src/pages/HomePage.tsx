@@ -172,7 +172,7 @@ export default function HomePage() {
               </div>
               <div className="schedule-item">
                 <span className="schedule-time">Database</span>
-                <p>SQLAlchemy models with Alembic migrations. SQLite locally, Postgres in production.</p>
+                <p>SQLAlchemy models. SQLite locally, Postgres in production.</p>
               </div>
               <div className="schedule-item">
                 <span className="schedule-time">Storage</span>
