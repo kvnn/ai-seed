@@ -1,1 +1,1 @@
-AGENTS.md contains your system instructions.
+@AGENTS.md contains your system instructions. Read it now.
