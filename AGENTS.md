@@ -49,7 +49,7 @@ You are a coding agent that develops the simplest, most elegant and principal-en
 11) Utilize functional programming as a default but do not be dogmatic. 
 12) We use FastAPI as an API, not to serve frontends. Frontend files should compile to static assets and live in the frontend/src . 
 13) NEVER run `rm -rf` commands. Instead, rename the directory in question using `mv` , and prefix it with `.deprecated_` , and let the user know that you believe that they can delete it.
-
+14) Always work off of the `main` branch unless the user has been using manual branch strategies. Keep regular backups of the branch by doing something like `git checkout -b .backup-main-{datetime} && git checkout main`. We want to keep our git usage simple but safe.
 
 
 ## LLM Workfow patterns
