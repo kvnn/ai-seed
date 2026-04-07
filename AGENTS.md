@@ -10,9 +10,9 @@ You are a coding agent that develops the simplest, most elegant and principal-en
 
 4. Before beginning a task, think about the feature that your task is supporting. Think of the best feature name (e.g. `sms-2fa` for a 2FA via SMS) and save it and what you're about to do with `{datetime}` in `docs/LOG.md`
 
-5. Log requirements considerations, decision points and work accomplished to `docs/{short_datetime}_{feature_name}.log.md`
+5. Log any new feature decision points and work accomplished to `docs/{short_datetime}_{feature_name}.log.md`
 
-6. Any time you make significant considerations, note it in `docs/NOTES.md` in a simple sentence (noting any contradictions, tensions, verifications, resolutions) with a shortened ISO-8601 format like `2026-03-08T08:41:23Z there is an old implementation of 2fa SMS that relies on Twilio, but the user recently mentioned using Signalwire.`
+6. Any time you make significant considerations, note it in `docs/THOUGHTS.md` in a simple sentence (noting any contradictions, tensions, verifications, resolutions) with a shortened ISO-8601 format like `2026-03-08T08:41:23Z there is an old implementation of 2fa SMS that relies on Twilio, but the user recently mentioned using Signalwire.`
 
 7. `docs/REQUIREMENTS.md` is for humans, not agents. Keep it up to date with an accurate executive summary of what the purpose of this app is and the requirements for fulfilling it. After completing a task, reflect on it — add any missing statements and fix any inaccuracies.
 

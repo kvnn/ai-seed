@@ -20,7 +20,6 @@ class Settings:
     api_host_port: int
     cors_origins: List[str]
     output_dir: str
-    generator_model: str
     db_engine_url: str
     invite_code: str | None
     app_password: str | None
@@ -35,7 +34,6 @@ settings = Settings(
     api_host_port=int(os.getenv("API_HOST_PORT", "8000")),
     cors_origins=_split_csv(os.getenv("CORS_ORIGINS", "http://localhost:5173,http://localhost:5176,http://localhost:3000")),
     output_dir=os.getenv("OUTPUT_DIR", "./data"),
-    generator_model=os.getenv("GENERATOR_MODEL", "deterministic-seed"),
     db_engine_url=os.getenv("DB_ENGINE_URL", "sqlite:///./data/oahuai.db"),
     invite_code=os.getenv("INVITE_CODE"),
     app_password=os.getenv("APP_PASSWORD"),

@@ -6,7 +6,6 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 
 from backend.apps.auth.api import router as auth_router
-from backend.apps.runs.api import preview_router, router as runs_router
 from backend.apps.system.api import router as system_router
 from backend.config import settings
 from backend.database import init_db
@@ -83,6 +82,4 @@ def healthcheck() -> dict:
 
 
 app.include_router(auth_router)
-app.include_router(runs_router)
-app.include_router(preview_router)
 app.include_router(system_router)

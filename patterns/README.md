@@ -14,6 +14,8 @@ These are **architecture patterns, not libraries**. They give you the judgment b
 | [Storage Backend Swap](storage-backend-swap.md) | Abstract file storage interface that swaps between local filesystem and S3 without code changes |
 | [Custom Domain Lifecycle](custom-domain-lifecycle.md) | DNS validation, CDN tenant provisioning, and phase state machine for customer "bring your own domain" |
 | [Async DB Patterns](async-db-patterns.md) | Dual sync/async SQLAlchemy engines, environment-aware pool tuning, and connection monitoring for FastAPI |
+| [Dual-Extraction LLM](dual-extraction-llm.md) | Splitting LLM extraction into style vs content agents with generation fallback |
+| [Staged Approval Workflow](staged-approval-workflow.md) | Multi-stage LLM pipeline with approval gates, retry, and audit trail |
 
 ## How to Use These
 
