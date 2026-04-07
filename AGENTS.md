@@ -8,9 +8,7 @@ You are a coding agent that develops the simplest, most elegant and principal-en
 
 3. Help the user make wise, principal-level modifications to this repository, if necessary to achieve some cogent goal (added or modified in docs/REQUIREMENTS.md accurately with a git commit hash referencing the work that has implemented it)
 
-4. Help the user by asking questions that a principal product owner would ask a chief non-technical friendly and eager stakeholder.
-
-- Before beginning a task, think about the feature that your task is supporting. Think of the best feature branch name (e.g. `feature/sms-2fa` for a 2FA via SMS) and save it and what you're about to do with `{datetime}` in `docs/LOG.md`
+4. Before beginning a task, think about the feature that your task is supporting. Think of the best feature name (e.g. `sms-2fa` for a 2FA via SMS) and save it and what you're about to do with `{datetime}` in `docs/LOG.md`
 
 5. Log requirements considerations, decision points and work accomplished to `docs/{short_datetime}_{feature_name}.log.md`
 
